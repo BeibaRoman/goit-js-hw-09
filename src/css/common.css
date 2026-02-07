@@ -1,46 +1,142 @@
-* {
+/* common.css */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: #fafafa;
-  color: #212121;
-  line-height: 1.5;
+  margin: 0;
+  padding: 32px 16px;
+  font-family:
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
+  line-height: 1.4;
+  color: #111827;
+  background: #f3f4f6;
 }
 
-img {
-  display: block;
+a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+p {
+  margin: 0 0 24px;
+}
+
+/* Controls */
+#datetime-picker {
+  width: 260px;
   max-width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  outline: none;
+  font-size: 16px;
+  background: #ffffff;
+  transition:
+    border-color 200ms ease,
+    box-shadow 200ms ease;
 }
 
+#datetime-picker:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+}
+
+button[data-start] {
+  margin-left: 12px;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 12px;
+  background: #111827;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    transform 120ms ease,
+    opacity 200ms ease,
+    background-color 200ms ease;
+}
+
+button[data-start]:hover {
+  transform: translateY(-1px);
+  background: #0b1220;
+}
+
+button[data-start]:active {
+  transform: translateY(0);
+}
+
+button[data-start]:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Timer layout */
 .timer {
+  margin-top: 28px;
   display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin-top: 100px;
+  gap: 14px;
+  flex-wrap: wrap;
 }
 
 .field {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  min-width: 120px;
+  padding: 16px 18px;
+  border-radius: 16px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 10px 25px rgba(17, 24, 39, 0.06);
+  text-align: center;
 }
 
 .value {
-  padding: 15px 20px;
-  border: 3px solid #6a6868;
-  border-radius: 50%;
-  font-size: 30px;
-  color: #6c6969;
+  display: block;
+  font-size: 44px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: #111827;
 }
 
 .label {
-  font-size: 30px;
+  display: block;
+  margin-top: 6px;
+  font-size: 13px;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  font-weight: bold;
-  color: #6a6868;
+  color: #6b7280;
+}
+
+/* Responsive: stack controls on small screens */
+@media (max-width: 480px) {
+  #datetime-picker {
+    width: 100%;
+  }
+
+  button[data-start] {
+    margin-left: 0;
+    margin-top: 12px;
+    width: 100%;
+  }
+
+  .field {
+    flex: 1 1 calc(50% - 14px);
+    min-width: 140px;
+  }
+
+  .value {
+    font-size: 38px;
+  }
 }
