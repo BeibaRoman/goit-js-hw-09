@@ -6,7 +6,7 @@ const TIME_DELAY = 1000;
 
 const refs = {
   dateTimePicker: document.querySelector('#datetime-picker'),
-  startBtn: document.querySelector('[data-start]'),
+  startBtn: document.querySelector('[data-start-timer]'),
   days: document.querySelector('[data-days]'),
   hours: document.querySelector('[data-hours]'),
   minutes: document.querySelector('[data-minutes]'),
